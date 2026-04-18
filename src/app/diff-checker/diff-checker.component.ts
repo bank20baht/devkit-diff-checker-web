@@ -66,16 +66,9 @@ export class DiffCheckerComponent {
       clearTimeout(this._timer);
       this._timer = setTimeout(() => this._compute(a, b, vm, opts), 80);
     });
-
-    this.loadExample();
   }
 
-  private _compute(
-    a: string,
-    b: string,
-    vm: 'split' | 'unified',
-    opts: DiffOptions,
-  ): void {
+  private _compute(a: string, b: string, vm: 'split' | 'unified', opts: DiffOptions): void {
     const t0 = performance.now();
     const { hunks, stats } = this.diffService.compute(a, b, opts);
     const html =
@@ -137,52 +130,6 @@ export class DiffCheckerComponent {
     else if (bytes < 1024 * 1024) size = (bytes / 1024).toFixed(1) + ' KB';
     else size = (bytes / 1024 / 1024).toFixed(2) + ' MB';
     return `${size} · ${lines} lines`;
-  }
-
-  loadExample(): void {
-    this.inputA.set(`{
-  "private": true,
-  "packageManager": "bun@1.3.4",
-  "dependencies": {
-    "@angular/common": "^21.1.0",
-    "@angular/compiler": "^21.1.0",
-    "@angular/core": "^21.1.0",
-    "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
-    "@angular/router": "^21.1.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular/build": "^21.1.2",
-    "@angular/cli": "^21.1.2",
-    "@angular/compiler-cli": "^21.1.0"
-  }
-}`);
-    this.inputB.set(`{
-  "private": true,
-  "packageManager": "bun@1.3.4",
-  "dependencies": {
-    "@angular-architects/native-federation": "^21.2.3",
-    "@angular/animations": "^21.1.0",
-    "@angular/common": "^21.1.0",
-    "@angular/compiler": "^21.1.0",
-    "@angular/core": "^21.1.0",
-    "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
-    "@angular/router": "^21.1.0",
-    "@softarc/native-federation-node": "^3.3.4",
-    "es-module-shims": "^1.5.12",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^21.1.2",
-    "@angular/build": "^21.1.2",
-    "@angular/cli": "^21.1.2",
-    "@angular/compiler-cli": "^21.1.0"
-  }
-}`);
   }
 
   @HostListener('document:keydown', ['$event'])
