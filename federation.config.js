@@ -3,7 +3,6 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 module.exports = withNativeFederation({
   name: 'devkit-diff-checker-web',
 
-
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
@@ -16,6 +15,10 @@ module.exports = withNativeFederation({
     // Add further packages you don't need at runtime
   ],
 
+  exposes: {
+    './dk-diff-checker-routes': './src/app/app.routes.ts', // here
+  },
+
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
 
@@ -23,6 +26,6 @@ module.exports = withNativeFederation({
     // New feature for more performance and avoiding
     // issues with node libs. Comment this out to
     // get the traditional behavior:
-    ignoreUnusedDeps: true
-  }
+    ignoreUnusedDeps: true,
+  },
 });
