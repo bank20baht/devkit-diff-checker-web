@@ -1,3 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+/* ---------- Design tokens ---------- */
+:root {
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+
+  --radius-1: 4px;
+  --radius-2: 6px;
+
+  --ff-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ff-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-2xl: 24px;
+
+  --tracking-tight: -0.025em;
+  --tracking-mono: 0.01em;
+
+  --dur-1: 120ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Diff tints — theme-independent */
+  --diff-add-bg: rgba(46, 160, 67, 0.15);
+  --diff-add-gutter: rgba(46, 160, 67, 0.3);
+  --diff-add-word: rgba(46, 160, 67, 0.4);
+  --diff-del-bg: rgba(248, 81, 73, 0.15);
+  --diff-del-gutter: rgba(248, 81, 73, 0.3);
+  --diff-del-word: rgba(248, 81, 73, 0.4);
+  --diff-empty-bg: rgba(110, 118, 129, 0.08);
+}
+
+[data-theme='dark'] {
+  --bg-app: #0d1117;
+  --bg-surface: #0d1117;
+  --bg-muted: #161b22;
+  --fg-default: #e6edf3;
+  --fg-muted: #7d8590;
+  --fg-subtle: #484f58;
+  --border-subtle: #21262d;
+  --border-default: #30363d;
+  --brand-500: #58a6ff;
+  --brand-400: #79c0ff;
+  --ink-2: #161b22;
+  --ink-3: #21262d;
+  --ink-4: #30363d;
+  --ink-5: #484f58;
+  --ink-6: #6e7781;
+  --ink-7: #c9d1d9;
+  --ink-8: #e6edf3;
+  --diff-hunk-bg: #1b2130;
+  --diff-hunk-fg: #7d8590;
+}
+
+[data-theme='light'] {
+  --bg-app: #f6f8fa;
+  --bg-surface: #ffffff;
+  --bg-muted: #f6f8fa;
+  --fg-default: #24292f;
+  --fg-muted: #656d76;
+  --fg-subtle: #6e7781;
+  --border-subtle: #d0d7de;
+  --border-default: #d0d7de;
+  --brand-500: #0969da;
+  --brand-400: #218bff;
+  --ink-2: #f6f8fa;
+  --ink-3: #eaeef2;
+  --ink-4: #d0d7de;
+  --ink-5: #afb8c1;
+  --ink-6: #8c959f;
+  --ink-7: #57606a;
+  --ink-8: #24292f;
+  --diff-hunk-bg: #f1f8ff;
+  --diff-hunk-fg: #57606a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--fg-default);
+  font-family: var(--ff-sans);
+}
