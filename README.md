@@ -1,59 +1,42 @@
-# DevkitDiffCheckerWeb
+# Devkit Diff Checker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+A fast, client-side text diff tool built with Angular. Compare two blocks of text instantly with line-level and word-level highlighting.
 
-## Development server
+**Live:** https://diff-checker.20baht.com
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- **Split & unified views** — side-by-side or stacked diff layout
+- **Word-level diffing** — highlights character-level changes within modified lines
+- **Comparison options** — ignore whitespace, ignore case, toggle word diff
+- **Stats** — additions, deletions, similarity percentage, hunk count, and computation time
+- **Keyboard shortcuts** — `Cmd+Enter` to compare, `Cmd+Shift+S` to swap sides
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tech Stack
 
-## Code scaffolding
+| | |
+|---|---|
+| Framework | Angular 21 (standalone components, Signals) |
+| Styling | Tailwind CSS 4 |
+| Testing | Vitest |
+| Package manager | Bun |
+| Module federation | Angular Architects Native Federation |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Getting Started
 
 ```bash
-ng build
+bun install
+bun run start       # dev server at http://localhost:4201
+bun run build       # production build
+bun run test        # run tests
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Deployment
 
 ```bash
-ng test
+./deploy.sh         # build + sync to S3 (diff-checker.20baht.com)
 ```
 
-## Running end-to-end tests
+## Architecture
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+All diffing runs entirely client-side using an LCS (Longest Common Subsequence) algorithm with an 80ms debounce on input. The app is exposed as a micro-frontend via Native Federation (`./dk-diff-checker-routes`).
