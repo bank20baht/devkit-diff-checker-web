@@ -16,7 +16,7 @@ module.exports = withNativeFederation({
   ],
 
   exposes: {
-    './dk-diff-checker-routes': './src/app/app.routes.ts', // here
+    './dk-diff-checker-routes': './src/app/diff-checker/diff-checker.routes.ts', // here
   },
 
   // Please read our FAQ about sharing libs:
