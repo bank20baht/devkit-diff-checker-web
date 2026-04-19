@@ -116,11 +116,6 @@ export class DiffCheckerComponent {
     }
   }
 
-  toggleTheme(): void {
-    const cur = document.documentElement.getAttribute('data-theme');
-    document.documentElement.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
-  }
-
   formatSize(text: string): string {
     if (!text) return '0 B · 0 lines';
     const bytes = new Blob([text]).size;

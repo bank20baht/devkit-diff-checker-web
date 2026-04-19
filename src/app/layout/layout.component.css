@@ -1,0 +1,86 @@
+.topbar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 0 var(--sp-5);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--fg-default);
+  letter-spacing: var(--tracking-mono);
+}
+
+.brand .mark {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-500);
+  color: #0a0a0b;
+  border-radius: var(--radius-1);
+  font-weight: 800;
+  font-size: 12px;
+  font-family: var(--ff-mono);
+}
+
+.brand .sep {
+  color: var(--fg-subtle);
+  font-weight: 400;
+}
+
+.brand .tool {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.topbar .spacer {
+  flex: 1;
+}
+
+.topbar .meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  color: var(--fg-subtle);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+}
+
+.topbar .meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-4);
+}
+
+/* Small icon button in topbar */
+.icon-btn-round {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.icon-btn-round:hover {
+  color: var(--ink-8);
+  background: var(--ink-2);
+}
