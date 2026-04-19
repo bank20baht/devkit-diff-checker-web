@@ -8,8 +8,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () =>
-          import('./diff-checker/diff-checker.component').then((m) => m.DiffCheckerComponent),
+        loadChildren: () =>
+          import('./diff-checker/diff-checker.routes').then((m) => m.routes),
       },
     ],
   },
