@@ -26,4 +26,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          preCommands: pages project create devkit-diff-checker-web --production-branch=main || true
           command: pages deploy dist/devkit-diff-checker-web/browser --project-name=devkit-diff-checker-web --branch=main
