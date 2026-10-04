@@ -34,7 +34,7 @@ bun run test        # run tests
 ## Deployment
 
 ```bash
-./deploy.sh         # build + sync to S3 (diff-checker.20baht.com)
+./deploy.sh         # build + deploy to Cloudflare Pages
 ```
 
 ## Architecture

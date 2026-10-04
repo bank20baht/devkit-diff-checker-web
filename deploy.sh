@@ -1,5 +1,4 @@
 #!/bin/bash
 ng build --configuration production
-aws s3 sync dist/devkit-diff-checker-web/browser s3://diff-checker.20baht.com/ --delete
-echo "✅ Deployed to https://diff-checker.20baht.com"
-echo "ถ้าไม่เห็นการเปลี่ยนแปลง → purge cache ที่ Cloudflare"
+npx wrangler pages deploy dist/devkit-diff-checker-web/browser --project-name=devkit-diff-checker-web --branch=main
+echo "✅ Deployed to Cloudflare Pages"
