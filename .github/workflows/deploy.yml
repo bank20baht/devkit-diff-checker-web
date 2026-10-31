@@ -1,8 +1,9 @@
 name: Deploy Angular to Cloudflare Pages
 
+# Deploys on a published GitHub Release only; build checks run locally.
 on:
-  push:
-    branches: [main]
+  release:
+    types: [published]
 
 permissions:
   contents: read
